@@ -20,7 +20,7 @@ router.get("/", auth, (req, res) => {
   //   res.status(500).send("Server Error");
   // }
 
-  User.findById(req.user.email)
+  User.findById(req.user.id)
     .select("-password")
     .exec()
     .then((userObject) => {
