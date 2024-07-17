@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://amashi:amashi123@mongo-cluster-amashi.yvwzn.azure.mongodb.net/defect-tracking-system?retryWrites=true&w=majority",
+  "jwtSecret": "secret",
+  "githubClientId": "d5fd75886c7b9f0e2f30",
+  "githubSecret": "3c90b32a23df1563e0279268f0b01016a33b7c8b"
+}
