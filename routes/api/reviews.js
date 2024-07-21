@@ -5,6 +5,8 @@ const auth = require("../../middleware/auth");
 
 const Review = require("../../models/Review");
 const User = require("../../models/User");
+const Achievement = require("../../models/Achievement");
+const Badge = require("../../models/Badge");
 const checkObjectID = require("../../middleware/checkObjectId");
 
 // @route   GET api/reviews/
@@ -73,6 +75,68 @@ router.post(
       // Save the updated user documents
       await reviewer.save();
       await reviewee.save();
+
+      /*reviewer
+
+      const reviewerBadge = await Achievement.find({
+        sendingReviewPoints: 1,
+      });
+
+      if (reviewerBadge[0]._id) {
+        reviewer.achievements.push(reviewerBadge[0]._id);
+        await reviewer.save();
+      }
+
+      const revieweeBadge = await Achievement.find({
+        sendingReviewPoints: 0.5,
+      });
+
+      if (revieweeBadge[0]._id) {
+        reviewee.achievements.push(revieweeBadge[0]._id);
+        await reviewee.save();
+      }*/
+
+      /**New strat here */
+      // Function to check and award achievements and badges
+      const checkAndAwardAchievements = async (user, type) => {
+        const achievements = await Achievement.find({});
+        const userPoints =
+          type === "sending"
+            ? user.sendingReviewPoints
+            : user.receivingReviewPoints;
+
+        for (const achievement of achievements) {
+          const achievementPoints =
+            type === "sending"
+              ? achievement.sendingReviewPoints
+              : achievement.receivingReviewPoints;
+
+          if (userPoints === achievementPoints) {
+            // Check if the user already has this achievement
+            const hasAchievement = user.achievements.some((ach) =>
+              ach.achievement_id.equals(achievement._id)
+            );
+            if (!hasAchievement) {
+              user.achievements.push({ achievement_id: achievement._id });
+
+              // Award the badge associated with the achievement
+              const badge = await Badge.findById(achievement.badge);
+              if (badge) {
+                user.badges.push({ badge_id: badge._id });
+              }
+            }
+          }
+        }
+      };
+
+      // Check and award achievements and badges for reviewer and reviewee
+      await checkAndAwardAchievements(reviewer, "sending");
+      await checkAndAwardAchievements(reviewee, "receiving");
+
+      // Save the updated user documents again to include achievements and badges
+      await reviewer.save();
+      await reviewee.save();
+      /**New ends here */
 
       // Fetch and send updated user details
       const updatedUserReviewer = await User.findById(req.user.id);
