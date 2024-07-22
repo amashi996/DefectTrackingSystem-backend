@@ -9,7 +9,7 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "update-users": "node removeAchievementsAndBadges.js"
+    "update-users": "node resetReviewPoints.js"
   },
   "author": "Amashi Bastiansz",
   "license": "MIT",

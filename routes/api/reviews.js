@@ -18,6 +18,43 @@ router.get("/test-rev", (req, res) =>
   })
 );
 
+// @route    GET api/reviews/received
+// @desc     Get reviews received to the logged-in user
+// @access   Private
+router.get("/received", auth, async (req, res) => {
+  try {
+    const reviews = await Review.find({ user: req.user.id }).sort({ date: -1 });
+    res.json(reviews);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route    GET api/reviews/added
+// @desc     Get reviews added by the logged-in user
+// @access   Private
+router.get("/added", auth, async (req, res) => {
+  try {
+    // Fetch the logged-in user's details
+    const user = await User.findById(req.user.id).select("email");
+
+    if (!user) {
+      return res.status(404).json({ msg: "User not found" });
+    }
+
+    // Use the user's email to find the reviews they added
+    const reviews = await Review.find({ reviewerEmail: user.email }).sort({
+      date: -1,
+    });
+
+    res.json(reviews);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 // @route   POST api/reviews/
 // @desc    Add a review for selected user
 // @access  Private
@@ -58,6 +95,9 @@ router.post(
         reviewText: req.body.reviewText,
         name: req.user.name,
         avatar: req.user.avatar,
+        reviewerName: reviewer.name,
+        reviewerEmail: reviewer.email,
+        reviewerAvatar: reviewer.avatar,
       });
 
       const review = await newReview.save();
@@ -75,26 +115,6 @@ router.post(
       // Save the updated user documents
       await reviewer.save();
       await reviewee.save();
-
-      /*reviewer
-
-      const reviewerBadge = await Achievement.find({
-        sendingReviewPoints: 1,
-      });
-
-      if (reviewerBadge[0]._id) {
-        reviewer.achievements.push(reviewerBadge[0]._id);
-        await reviewer.save();
-      }
-
-      const revieweeBadge = await Achievement.find({
-        sendingReviewPoints: 0.5,
-      });
-
-      if (revieweeBadge[0]._id) {
-        reviewee.achievements.push(revieweeBadge[0]._id);
-        await reviewee.save();
-      }*/
 
       /**New strat here */
       // Function to check and award achievements and badges
