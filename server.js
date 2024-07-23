@@ -2,6 +2,7 @@ const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
 const connectDB = require("./config/db");
+const cors = require("cors");
 
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
@@ -24,6 +25,9 @@ connectDB();
 
 // Init Middleware
 app.use(express.json({ extended: false }));
+
+// Use CORS middleware
+app.use(cors());
 
 // Use Routes
 //app.use("/api/users", users);

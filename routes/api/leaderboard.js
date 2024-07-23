@@ -8,8 +8,8 @@ const User = require("../../models/User");
 // @access  Private
 router.get("/", auth, async (req, res) => {
   try {
-    // Fetch users and sort them by totalPoints in descending order
-    const leaderboard = await User.find()
+    // Fetch users with more than 0 points and sort them by totalPoints in descending order
+    const leaderboard = await User.find({ totalPoints: { $gt: 0 } })
       .sort({ totalPoints: -1 })
       .select("name avatar email totalPoints");
 
