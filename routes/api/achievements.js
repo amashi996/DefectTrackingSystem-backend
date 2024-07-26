@@ -58,10 +58,23 @@ router.post(
 // @route   GET api/achievements
 // @desc    Get all achievements
 // @access  Private
-router.get("/", auth, async (req, res) => {
+/*router.get("/", auth, async (req, res) => {
   try {
     const achievements = await Achievement.find().populate("badge");
     res.status(200).json(achievements);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});*/
+router.get("/", auth, async (req, res) => {
+  try {
+    const achievements = await Achievement.find().populate("badge", [
+      "name",
+      "description",
+      "icon",
+    ]);
+    res.json(achievements);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

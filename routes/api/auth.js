@@ -106,4 +106,46 @@ router.get("/users", async (req, res) => {
   }
 });
 
+// @route    GET api/auth/achievements
+// @desc     Get all achievements for the logged-in user
+// @access   Private
+router.get("/achievements", auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).populate(
+      "achievements.achievement_id",
+      "name description"
+    );
+
+    if (!user) {
+      return res.status(404).json({ msg: "User not found" });
+    }
+
+    res.json(user.achievements);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route    GET api/auth/badges
+// @desc     Get all badges for the logged-in user
+// @access   Private
+router.get("/badges", auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).populate(
+      "badges.badge_id",
+      "name description"
+    );
+
+    if (!user) {
+      return res.status(404).json({ msg: "User not found" });
+    }
+
+    res.json(user.badges);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 module.exports = router;
