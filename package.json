@@ -9,7 +9,7 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "update-users": "node updateBadgeIcon.js"
+    "update-users": "node updateUserAchievements.js"
   },
   "author": "Amashi Bastiansz",
   "license": "MIT",

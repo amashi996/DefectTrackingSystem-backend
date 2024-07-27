@@ -38,7 +38,13 @@ router.post(
 router.get("/", auth, async (req, res) => {
   try {
     const badges = await Badge.find().sort({ date: -1 });
-    res.json(badges);
+
+    const badgesWithHtml = badges.map((badge) => ({
+      ...badge.toObject(),
+      iconHtml: `<img src="${badge.icon}" alt="${badge.name}" />`,
+    }));
+
+    res.json(badgesWithHtml);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
@@ -52,7 +58,13 @@ router.get("/:id", auth, async (req, res) => {
   try {
     const badge = await Badge.findById(req.params.id);
     if (!badge) return res.status(404).json({ msg: "Badge not found" });
-    res.json(badge);
+
+    const badgeWithHtml = {
+      ...badge.toObject(),
+      iconHtml: `<img src="${badge.icon}" alt="${badge.name}" />`,
+    };
+
+    res.json(badgeWithHtml);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

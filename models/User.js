@@ -48,6 +48,12 @@ const UserSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Achievement",
       },
+      name: {
+        type: String,
+      },
+      description: {
+        type: String,
+      },
       earned_date: {
         type: Date,
         default: Date.now,
@@ -59,6 +65,15 @@ const UserSchema = new mongoose.Schema({
       badge_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Badge",
+      },
+      name: {
+        type: String,
+      },
+      description: {
+        type: String,
+      },
+      icon: {
+        type: String,
       },
       earned_date: {
         type: Date,

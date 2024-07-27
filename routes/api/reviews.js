@@ -137,12 +137,21 @@ router.post(
               ach.achievement_id.equals(achievement._id)
             );
             if (!hasAchievement) {
-              user.achievements.push({ achievement_id: achievement._id });
+              user.achievements.push({
+                achievement_id: achievement._id,
+                name: achievement.name,
+                description: achievement.description,
+              });
 
               // Award the badge associated with the achievement
               const badge = await Badge.findById(achievement.badge);
               if (badge) {
-                user.badges.push({ badge_id: badge._id });
+                user.badges.push({
+                  badge_id: badge._id,
+                  name: badge.name,
+                  description: badge.description,
+                  icon: badge.icon,
+                });
               }
             }
           }
