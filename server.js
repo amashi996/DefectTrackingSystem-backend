@@ -45,7 +45,7 @@ app.use("/api/defComments", defectComments);
 app.use("/api/badges", badges);
 app.use("/api/achievements", achievements);
 
-const port = process.env.PORT || 5002;
+const port = process.env.PORT || 5001;
 
 // new
 const server = http.createServer(app);

@@ -42,52 +42,52 @@ const badgeUpdates = [
   {
     badgeId: "66961aa3d99f0f5362b88380",
     newIconUrl:
-      "https://mysliit-my.sharepoint.com/my?id=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges%2FNovice%20Reviewer%20Icon%2Epng&parent=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges",
+      "https://drive.google.com/file/d/1j7gvt1eoB1h-gIkdRkFIZvGTRGPP1XI4/view?usp=sharing",
   },
   {
     badgeId: "66961aa6d99f0f5362b88383",
     newIconUrl:
-      "https://mysliit-my.sharepoint.com/my?id=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges%2FRegular%20Reviewer%2Epng&parent=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges",
+      "https://drive.google.com/file/d/18SgqzaUXUdisWGU-weck-KKl5mDl2oO-/view?usp=sharing",
   },
   {
     badgeId: "66961aa7d99f0f5362b88385",
     newIconUrl:
-      "https://mysliit-my.sharepoint.com/my?id=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges%2FActive%20Contributor%2Epng&parent=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges",
+      "https://drive.google.com/file/d/1mZlzLf5uzuQD3p7iAQCzljTwOoQs_Pd6/view?usp=sharing",
   },
   {
     badgeId: "66961aa7d99f0f5362b88387",
     newIconUrl:
-      "https://mysliit-my.sharepoint.com/my?id=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges%2FTop%20Reviewer%2Epng&parent=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges",
+      "https://drive.google.com/file/d/1MrF0-KYA8ybLV84AADdQkDMAFjDULkhW/view?usp=sharing",
   },
   {
     badgeId: "66961aa7d99f0f5362b88389",
     newIconUrl:
-      "https://mysliit-my.sharepoint.com/my?id=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges%2FMaster%20Reviewer%2Epng&parent=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges",
+      "https://drive.google.com/file/d/17HMd1eQnca0zL4RJHUDH6hO7Fk75Znbs/view?usp=sharing",
   },
   {
     badgeId: "66961aa7d99f0f5362b8838b",
     newIconUrl:
-      "https://mysliit-my.sharepoint.com/my?id=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges%2FAppreciated%2Epng&parent=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges",
+      "https://drive.google.com/file/d/1AkWoCwvLZ-_4dswicWw3pHAyENN4zF2j/view?usp=sharing",
   },
   {
     badgeId: "66961aa8d99f0f5362b8838d",
     newIconUrl:
-      "https://mysliit-my.sharepoint.com/my?id=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges%2FRecognized%2Epng&parent=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges",
+      "https://drive.google.com/file/d/1BsAGgoBYCbVMjtrlGn3uqlyCi4yGK74g/view?usp=sharing",
   },
   {
     badgeId: "66961aa8d99f0f5362b8838f",
     newIconUrl:
-      "https://mysliit-my.sharepoint.com/my?id=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges%2FValued%20Contributor%2Epng&parent=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges",
+      "https://drive.google.com/file/d/1UyebUJVCpUNc-jZgCbjsS9F3S4wtqFJX/view?usp=sharing",
   },
   {
     badgeId: "66961aa8d99f0f5362b88391",
     newIconUrl:
-      "https://mysliit-my.sharepoint.com/my?id=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges%2FHighly%20Valued%2Epng&parent=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges",
+      "https://drive.google.com/file/d/1YXfGYiiHjejreAKz5tdmRuGeOZolYaJq/view?usp=sharing",
   },
   {
     badgeId: "66961aa8d99f0f5362b88393",
     newIconUrl:
-      "https://mysliit-my.sharepoint.com/my?id=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges%2FCommunity%20Favorite%2Epng&parent=%2Fpersonal%2Fms22036766%5Fmy%5Fsliit%5Flk%2FDocuments%2FBadges",
+      "https://drive.google.com/file/d/1B-Dqg04jK72s_dsolz36M67kj2kY1tFT/view?usp=sharing",
   },
 ];
 
